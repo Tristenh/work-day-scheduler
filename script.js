@@ -9,8 +9,6 @@ $("#currentDay").text(today.format("dddd MMM, DD"));
 
 isCurrent();
 function isCurrent() {
-  console.log(dayjs().hour());
-
   row.each(function () {
     let row = $(this);
     let rowId = row.attr("id");
@@ -42,11 +40,13 @@ function isCurrent() {
 // function? How can DOM traversal be used to get the "hour-x" id of the
 // time-block containing the button that was clicked? How might the id be
 // useful when saving the description in local storage?
-  saveBtn.on("click", function () {
-    let rowId = $(this).closest(".row").attr("id");
-    let idNumber = parseInt(rowId.split("-")[1])
-    console.log(idNumber);
-})
+saveBtn.on("click", function () {
+  let rowId = $(this).closest(".row").attr("id");
+  let idNumber = parseInt(rowId.split("-")[1]);
+  console.log(idNumber);
+  let description = $(this).siblings(".description").val();
+  console.log(description);
+});
 
 // TODO: Add code to apply the past, present, or future class to each time
 // block by comparing the id to the current hour. HINTS: How can the id
