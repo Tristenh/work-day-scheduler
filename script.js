@@ -44,9 +44,23 @@ saveBtn.on("click", function () {
   let rowId = $(this).closest(".row").attr("id");
   let idNumber = parseInt(rowId.split("-")[1]);
   console.log(idNumber);
-  let description = $(this).siblings(".description").val();
-  console.log(description);
+  let descriptionValue = $(this).siblings(".description").val();
+  console.log(descriptionValue);
+
+  localStorage.setItem(rowId, descriptionValue);
+  renderMessage();
 });
+
+function renderMessage() {
+  row.each(function () {
+    let rowId = $(this).attr("id");
+    var storedDescription = localStorage.getItem(rowId);
+    if (storedDescription !== null) {
+      $(this).find(".description").val(storedDescription);
+    }
+  });
+}
+renderMessage();
 
 // TODO: Add code to apply the past, present, or future class to each time
 // block by comparing the id to the current hour. HINTS: How can the id
