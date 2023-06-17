@@ -1,4 +1,4 @@
-# Work Day Scheduler Starter Code
+# Work Day Scheduler
 ## Add important events to the work day scheduler, gets the current day, has past, current and future event planning capabilities, and to save your event to localStorage to ensure your plans are securly stored
 # deployed application
 https://tristenh.github.io/work-day-scheduler/
